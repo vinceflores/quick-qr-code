@@ -22,6 +22,7 @@ Stakeholders
 - S: System
 
 Functional Requirements
+- A must be able to modify their restaurant info also known their menu
 - A must be able to CRUD menu items into their menu. Each menu item will have a name, description, price and image maybe
 - A/RS must be able to CRUD an account for their restaurant
 - C msut be able to CRUD their own account
@@ -32,6 +33,9 @@ Functional Requirements
 RS will be redirected to a page containing a breakdown of the order which includes the menu-items on a list, and price breakdown. The RS will need to confirm the order manually
    - Confirmed: A webhook will be exposed for restaurant management system to sync the order
    - No action
+FR Itr2
+[] refresh button for menu list
+[] add visibility check for restaurant so that new restaurant who are not ready are not added to the customer's restaurant browsing list
 
 Tech Stack
 - Nextjs
