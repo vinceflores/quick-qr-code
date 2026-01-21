@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { LogoutButton } from "@/components/logout-button"
 import { createClient } from "@/lib/supabase/client"
+import { ShoppingCart } from "lucide-react"
 
 type UserState = {
     isAuthenticated: boolean
@@ -57,7 +58,14 @@ export default function Navbar() {
                             </Button>
                         </>
                     )}
+                    {/* Cart */}
+                    <div>
+                        <Button asChild size={"icon"}>
+                            <Link href="/dashboard/customer/cart"> <ShoppingCart />  </Link>
+                        </Button>
+                    </div>
                 </div>
+
             </div>
         </nav>
     )

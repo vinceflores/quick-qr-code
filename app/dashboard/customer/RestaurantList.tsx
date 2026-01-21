@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { createClient } from "../../../lib/supabase/client"
 import { Button } from "../../../components/ui/button";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 type Restaurant = {
     created_at: string;
@@ -37,7 +38,9 @@ export default function RestaurantList() {
                                     <h1 className="capitalize font-bold">{i.name}</h1>
                                     <p>{i.description}</p>
                                 </div>
-                                <Button className="cursor-pointer"> Order </Button>
+                                <Button asChild className="cursor-pointer">
+                                    <Link href={`customer/r/${i.id}`} >Order</Link>
+                                </Button>
                             </li>
                         ))
                     }
