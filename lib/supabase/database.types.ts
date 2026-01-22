@@ -41,13 +41,6 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "menu-item_id_fkey"
-            columns: ["id"]
-            isOneToOne: true
-            referencedRelation: "restaurant"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "menu-item_restaurant-id_fkey"
             columns: ["restaurant-id"]
             isOneToOne: false
@@ -102,16 +95,22 @@ export type Database = {
         Row: {
           created_at: string
           id: number
+          order_status: Database["public"]["Enums"]["order_status"] | null
+          updatedAt: string
           user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: number
+          order_status?: Database["public"]["Enums"]["order_status"] | null
+          updatedAt?: string
           user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: number
+          order_status?: Database["public"]["Enums"]["order_status"] | null
+          updatedAt?: string
           user_id?: string | null
         }
         Relationships: []
@@ -167,6 +166,7 @@ export type Database = {
     }
     Enums: {
       app_role: "customer" | "admin"
+      order_status: "pending" | "confirmed" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -295,6 +295,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["customer", "admin"],
+      order_status: ["pending", "confirmed", "rejected"],
     },
   },
 } as const

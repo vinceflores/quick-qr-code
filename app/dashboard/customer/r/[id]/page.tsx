@@ -4,6 +4,7 @@ import { use, useEffect, useState } from 'react'
 import { Button } from '../../../../../components/ui/button'
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from '../../../../../components/ui/card'
 import { createClient } from '../../../../../lib/supabase/client'
+import { useCart } from '../../../../../components/cart-hooks'
 
 type MenuItem = {
     created_at: string
@@ -47,9 +48,10 @@ export default function BlogPostPage({
     const { id } = use(params)
     const [menuItems, setMenuItems] = useState(menuItemsStub)
     const [resDetails, setResDetails] = useState(resDetailsStub)
+    const { addItem } = useCart()
 
     useEffect(() => {
-        
+
         const getMnuList = async () => {
             const supabase = createClient()
             const res = await supabase
@@ -60,7 +62,7 @@ export default function BlogPostPage({
                 console.log({
                     menuList: res.data
                 })
-            }else{
+            } else {
                 console.log(res.error)
             }
         }
@@ -69,7 +71,7 @@ export default function BlogPostPage({
             const res = await supabase.from("restaurant").select("*").eq("id", Number(id))
             if (!res.error) {
                 setResDetails(res.data[0])
-            }else {
+            } else {
                 console.log(res.error)
             }
         }
@@ -77,8 +79,13 @@ export default function BlogPostPage({
         getResDetails()
     }, [])
 
-    const handleAddtoCart = async () => {
-
+    const handleAddtoCart = (item: MenuItem) => {
+        addItem({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            restaurantId: item["restaurant-id"],
+        })
     }
     return (
         <div>
@@ -94,7 +101,7 @@ export default function BlogPostPage({
                                 <CardTitle>{i.name} $ {i.price}</CardTitle>
                                 <CardDescription>{i.description} </CardDescription>
 
-                                <CardAction onClick={handleAddtoCart}>
+                                <CardAction onClick={() => handleAddtoCart(i)}>
                                     <Button className='cursor-pointer'> <ShoppingCart /> Add To Cart</Button>
                                 </CardAction>
                             </CardHeader>
