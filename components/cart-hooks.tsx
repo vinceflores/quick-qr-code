@@ -70,9 +70,15 @@ export function useCart() {
         [items]
     )
 
+    const currentRestaurantId = useMemo(() => {
+        const ids = Array.from(new Set(items.map((p) => p.restaurantId).filter((v) => v !== undefined))) as number[]
+        return ids.length > 0 ? ids[0] : undefined
+    }, [items])
+
     function addItem(newItem: Omit<CartItem, "qty"> & { qty?: number }) {
         setItems((prev) => {
             const qty = newItem.qty ?? 1
+            // Same restaurant (or empty cart) — merge/add normally
             const idx = prev.findIndex((p) => p.id === newItem.id)
             if (idx >= 0) {
                 const next = [...prev]
@@ -81,6 +87,11 @@ export function useCart() {
             }
             return [...prev, { ...newItem, qty }]
         })
+    }
+
+    function replaceWithItem(newItem: Omit<CartItem, "qty"> & { qty?: number }) {
+        const qty = newItem.qty ?? 1
+        setItems([{ ...newItem, qty }])
     }
 
     function removeItem(id: number) {
@@ -102,5 +113,5 @@ export function useCart() {
         setItems([])
     }
 
-    return { items, total, count, addItem, removeItem, setQuantity, clear }
+    return { items, total, count, currentRestaurantId, addItem, replaceWithItem, removeItem, setQuantity, clear }
 }

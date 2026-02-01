@@ -53,7 +53,7 @@ export type Database = {
         Row: {
           createdAt: string | null
           id: number
-          "menu-item-id": string
+          "menu-item-id": number | null
           "order-id": number
           quantity: number
           updatedAt: string
@@ -61,7 +61,7 @@ export type Database = {
         Insert: {
           createdAt?: string | null
           id?: number
-          "menu-item-id"?: string
+          "menu-item-id"?: number | null
           "order-id": number
           quantity?: number
           updatedAt?: string
@@ -69,15 +69,15 @@ export type Database = {
         Update: {
           createdAt?: string | null
           id?: number
-          "menu-item-id"?: string
+          "menu-item-id"?: number | null
           "order-id"?: number
           quantity?: number
           updatedAt?: string
         }
         Relationships: [
           {
-            foreignKeyName: "order-item_id_fkey"
-            columns: ["id"]
+            foreignKeyName: "order-item_menu-item-id_fkey"
+            columns: ["menu-item-id"]
             isOneToOne: false
             referencedRelation: "menu-item"
             referencedColumns: ["id"]
@@ -95,21 +95,18 @@ export type Database = {
         Row: {
           created_at: string
           id: number
-          order_status: Database["public"]["Enums"]["order_status"] | null
           updatedAt: string
           user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: number
-          order_status?: Database["public"]["Enums"]["order_status"] | null
           updatedAt?: string
           user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: number
-          order_status?: Database["public"]["Enums"]["order_status"] | null
           updatedAt?: string
           user_id?: string | null
         }

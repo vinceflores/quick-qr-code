@@ -3,6 +3,14 @@ import { ShoppingCart } from 'lucide-react'
 import { use, useEffect, useState } from 'react'
 import { Button } from '../../../../../components/ui/button'
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from '../../../../../components/ui/card'
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+} from '../../../../../components/ui/dialog'
 import { createClient } from '../../../../../lib/supabase/client'
 import { useCart } from '../../../../../components/cart-hooks'
 
@@ -48,7 +56,9 @@ export default function BlogPostPage({
     const { id } = use(params)
     const [menuItems, setMenuItems] = useState(menuItemsStub)
     const [resDetails, setResDetails] = useState(resDetailsStub)
-    const { addItem } = useCart()
+    const { items, currentRestaurantId, addItem, replaceWithItem } = useCart()
+    const [openResetDialog, setOpenResetDialog] = useState(false)
+    const [pendingItem, setPendingItem] = useState<MenuItem | null>(null)
 
     useEffect(() => {
 
@@ -80,12 +90,37 @@ export default function BlogPostPage({
     }, [])
 
     const handleAddtoCart = (item: MenuItem) => {
+        const incomingRestaurantId = item["restaurant-id"]
+        const requiresReset = items.length > 0 && currentRestaurantId !== undefined && incomingRestaurantId !== currentRestaurantId
+        if (requiresReset) {
+            setPendingItem(item)
+            setOpenResetDialog(true)
+            return
+        }
         addItem({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            restaurantId: incomingRestaurantId,
+        })
+    }
+
+    const proceedResetAndAdd = () => {
+        if (!pendingItem) return
+        const item = pendingItem
+        replaceWithItem({
             id: item.id,
             name: item.name,
             price: item.price,
             restaurantId: item["restaurant-id"],
         })
+        setPendingItem(null)
+        setOpenResetDialog(false)
+    }
+
+    const cancelReset = () => {
+        setPendingItem(null)
+        setOpenResetDialog(false)
     }
     return (
         <div>
@@ -109,6 +144,20 @@ export default function BlogPostPage({
                     ))
                 }
             </div>
+            <Dialog open={openResetDialog} onOpenChange={(v) => setOpenResetDialog(v)}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Reset Cart?</DialogTitle>
+                        <DialogDescription>
+                            Your cart currently has items from restaurant #{currentRestaurantId}. Adding an item from restaurant #{pendingItem?.["restaurant-id"]} will reset your cart. If you proceed, we will clear your cart and add this new item.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button variant="secondary" onClick={cancelReset}>Cancel</Button>
+                        <Button variant="destructive" onClick={proceedResetAndAdd}>Proceed</Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }

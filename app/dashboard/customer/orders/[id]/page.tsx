@@ -10,12 +10,12 @@ const OrderPage = (
 }   
 
 
-export defaul
-{
-    {
-        params,
-}: {
-        params: Promise<{ id: string }>
-    }t OrderPage: {
+// export defaul
+// {
+//     {
+//         params,
+// }: {
+//         params: Promise<{ id: string }>
+//     }t OrderPage: {
 
-    }
+//     }

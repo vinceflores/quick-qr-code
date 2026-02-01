@@ -1,0 +1,164 @@
+<mxfile host="65bd71144e">
+    <diagram id="mLoqzN36qhRKvwYXG0VV" name="Page-1">
+        <mxGraphModel dx="634" dy="1144" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="Customer" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="451" y="475" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Send Order" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="554" y="431" width="82" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="RS" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="451" y="699" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="9" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Order System" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="861" y="705" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Confirm Order" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="499" y="802" width="94" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="QR Generator" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="861" y="494" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Scan QR Code" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="554" y="705" width="82" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Generate QR Code" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="528" width="94" height="51" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.015;entryY=0.59;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="6" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;entryX=1.034;entryY=0.507;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="12" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="7" target="14" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="674" y="613" as="sourcePoint"/>
+                        <mxPoint x="834" y="613" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;exitX=0.25;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.368;entryY=0.152;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="9" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.012;entryY=0.599;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Cancel Order" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="824" width="89" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;startArrow=open;endArrow=none;startSize=12;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="10" target="13" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="600" y="773" as="sourcePoint"/>
+                        <mxPoint x="760" y="773" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;startArrow=open;endArrow=none;startSize=12;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.556;entryY=1.015;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="25" target="13" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="563" y="822" as="sourcePoint"/>
+                        <mxPoint x="605" y="755" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="Persist Order" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="707" y="428.5" width="94" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Delete Order" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="707" y="705" width="94" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="29" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="605" y="481" as="sourcePoint"/>
+                        <mxPoint x="611" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;exitX=0.734;exitY=0.084;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.555;entryY=0.929;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="25" target="30" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="681" y="717" as="sourcePoint"/>
+                        <mxPoint x="842" y="684" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0.349;entryY=1.04;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="37" target="69" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1163" y="449" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+                    <mxGeometry x="997" y="479" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="39" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1262" y="552.6190476190475" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="Display QR Code" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1212" y="467" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="[Click generate button]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="949" y="388" width="138" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Undisplay QR Code" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1212" y="569" width="101" height="46" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="[order ack received]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1264" y="528" width="123" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="50" target="63" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1184" y="717" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+                    <mxGeometry x="1005" y="699" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="53" target="62">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Open Order Confirmation Page" style="html=1;dashed=0;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="1326" y="679" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="scan QR code" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1073" y="691" width="94" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="return to admin dashboard" style="html=1;dashed=0;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="1329" y="945" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="ack order" style="edgeStyle=none;html=1;entryX=0.399;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="62" target="57" edge="1">
+                    <mxGeometry x="-0.053" y="36" relative="1" as="geometry">
+                        <mxPoint x="1185" y="861" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                        <mxPoint x="1373" y="835" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="62" value="&lt;div&gt;Fetch Order&amp;nbsp;&lt;/div&gt;" style="html=1;dashed=0;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="1326" y="774" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="63" target="53" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="" style="whiteSpace=wrap;html=1;rotation=90;" parent="1" vertex="1">
+                    <mxGeometry x="1167" y="709.5" width="70.5" height="13" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="68" target="39" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="Generate QR Code" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1207" y="378.5" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="69" target="68" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="Persist Order" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1087" y="307" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="in cart page" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="982" y="517" width="81" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

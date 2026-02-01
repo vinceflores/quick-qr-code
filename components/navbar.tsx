@@ -11,7 +11,38 @@ type UserState = {
     isAuthenticated: boolean
 }
 
-export default function Navbar() {
+export type NavbarProps = {
+    variant?: "admin" | "customer"
+}
+
+const adminLinks = [
+    {
+        href: "/dashboard/admin",
+        label: "Dashboard"
+    },
+    {
+        href: "/dashboard/admin/orders",
+        label: "orders"
+    }
+]
+const custoemrLinks = [
+    {
+        href: "/dashboard/customer",
+        label: "restaurants"
+    },
+    {
+        href: "/dashboard/customer/orders",
+        label: "orders"
+    },
+    {
+        href: "/dashboard/custoemr/account",
+        label: "Acoount"
+    }
+]
+
+export default function Navbar({
+    variant = "admin"
+}: NavbarProps) {
     const [userState, setUserState] = useState<UserState>({ isAuthenticated: false })
 
     useEffect(() => {
@@ -33,15 +64,17 @@ export default function Navbar() {
 
                 {/* Middle: Navigation */}
                 <div className="flex items-center gap-2">
-                    <Button asChild variant="ghost">
-                        <Link href="/">Home</Link>
-                    </Button>
-                    <Button asChild variant="ghost">
-                        <Link href="/dashboard/customer">Customer</Link>
-                    </Button>
-                    <Button asChild variant="ghost">
-                        <Link href="/dashboard/admin">Admin</Link>
-                    </Button>
+                    {
+                        variant === "admin" ? adminLinks.map((i, j) => (
+                            <Button key={j} asChild variant="ghost">
+                                <Link href={i.href} className="capitalize">{i.label}</Link>
+                            </Button>
+                        )) : custoemrLinks.map((i, j) => (
+                            <Button disabled={userState.isAuthenticated} key={j} asChild variant="ghost">
+                                <Link  href={i.href} className="capitalize">{i.label}</Link>
+                            </Button>
+                        ))
+                    }
                 </div>
 
                 {/* Right: Auth */}
@@ -58,12 +91,15 @@ export default function Navbar() {
                             </Button>
                         </>
                     )}
-                    {/* Cart */}
-                    <div>
-                        <Button asChild size={"icon"}>
-                            <Link href="/dashboard/customer/cart"> <ShoppingCart />  </Link>
-                        </Button>
-                    </div>
+                    {
+                        variant === "customer" &&
+
+                        <div>
+                            <Button asChild size={"icon"}>
+                                <Link href="/dashboard/customer/cart"> <ShoppingCart />  </Link>
+                            </Button>
+                        </div>
+                    }
                 </div>
 
             </div>
